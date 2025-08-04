@@ -1,0 +1,106 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Nuestras Canciones 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000; /* Fondo negro */
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(255, 148, 194, 0.6);
+      font-size: 1.8rem;
+      font-weight: bold;
+      border-radius: 0 0 20px 20px;
+    }
+
+    .volver {
+      margin-top: 15px;
+      display: inline-block;
+      text-decoration: none;
+      background: rgba(255, 148, 194, 0.9);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .volver:hover {
+      background: rgba(255, 111, 162, 0.9);
+    }
+
+    .cassettes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      width: 90%;
+      max-width: 800px;
+      margin: 30px auto;
+      text-align: center;
+    }
+
+    .cassettes img {
+      width: 100%;
+      max-width: 200px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      border-radius: 10px;
+    }
+
+    .cassettes img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Reproductor */
+    .player-container {
+      margin-top: 20px;
+    }
+
+    audio {
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Nuestras Canciones</header>
+
+  <a href="menu.html" class="volver">⬅ Volver al inicio</a>
+
+  <div class="cassettes">
+    <img src="case1.jpg" alt="Canción 1" onclick="playSong('eres.mp3')">
+    <img src="case2.jpg" alt="Canción 2" onclick="playSong('cars.mp3')">
+    <img src="case3.jpg" alt="Canción 3" onclick="playSong('eyes.mp3')">
+    <img src="case4.jpg" alt="Canción 4" onclick="playSong('hoy.mp3')">
+    <img src="case5.jpg" alt="Canción 5" onclick="playSong('sweater.mp3')">
+    <img src="case6.jpg" alt="Canción 6" onclick="playSong('die.mp3')">
+    <img src="case7.jpg" alt="Canción 7" onclick="playSong('dia.mp3')">
+    <img src="case8.jpg" alt="Canción 8" onclick="playSong('day.mp3')">
+  </div>
+
+  <div class="player-container">
+    <audio id="player" controls></audio>
+  </div>
+
+  <script>
+    function playSong(songFile) {
+      const player = document.getElementById("player");
+      player.src = songFile;
+      player.play();
+    }
+  </script>
+
+</body>
+</html>

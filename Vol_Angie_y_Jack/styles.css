@@ -1,0 +1,37 @@
+
+body {
+    background: linear-gradient(to right, #1a1a1a, #333);
+    color: #ccc;
+    font-family: 'Trebuchet MS', sans-serif;
+    padding: 20px;
+}
+header {
+    text-align: center;
+}
+.cassette-title {
+    font-size: 2.5em;
+    color: #66ffcc;
+    text-shadow: 0 0 5px #00ff99;
+}
+.gallery, .songs, .love-letter, .question {
+    margin-top: 40px;
+}
+.photos img {
+    width: 30%;
+    margin: 10px;
+    border-radius: 15px;
+}
+.song button {
+    display: block;
+    margin: 10px 0;
+    background-color: #663399;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+.answers button {
+    font-size: 1.2em;
+    margin: 5px;
+    padding: 10px 20px;
+}

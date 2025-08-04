@@ -1,0 +1,148 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>¿Te quieres casar conmigo? 💍</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ccffcc; /* Verde clarito */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .botones {
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #si {
+      background-color: #66cc66;
+      color: white;
+    }
+
+    #no {
+      background-color: #ff6666;
+      color: white;
+    }
+
+    #mensaje {
+      margin-top: 40px;
+      font-size: 1.5rem;
+      color: #444;
+      font-weight: bold;
+      display: none;
+    }
+
+    /* Confeti */
+    .confeti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      top: 0;
+      left: 0;
+      opacity: 0.9;
+      z-index: 999;
+      animation: caer 3s linear infinite;
+    }
+
+    @keyframes caer {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>¿Te quieres casar conmigo? 💍</h1>
+
+  <div class="botones">
+    <button id="si" onclick="aceptar()">Sí</button>
+    <button id="no" onclick="rechazar()">No</button>
+  </div>
+
+  <p id="mensaje"></p>
+
+  <script>
+    let contadorNo = 0;
+
+    function aceptar() {
+      document.getElementById("mensaje").textContent = "¡Sabía que no podías vivir sin mí, te amo! 💕";
+      document.getElementById("mensaje").style.display = "block";
+
+      // Confeti
+      for (let i = 0; i < 100; i++) {
+        crearConfeti();
+      }
+    }
+
+    function crearConfeti() {
+      const confeti = document.createElement("div");
+      confeti.classList.add("confeti");
+      confeti.style.backgroundColor = coloresAleatorios();
+      confeti.style.left = Math.random() * window.innerWidth + "px";
+      confeti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      document.body.appendChild(confeti);
+
+      setTimeout(() => {
+        confeti.remove();
+      }, 4000);
+    }
+
+    function coloresAleatorios() {
+      const colores = ["#ff6666", "#66cc66", "#66ccff", "#ffcc66", "#ff99cc"];
+      return colores[Math.floor(Math.random() * colores.length)];
+    }
+
+    function rechazar() {
+      contadorNo++;
+      const btnNo = document.getElementById("no");
+      const btnSi = document.getElementById("si");
+
+      // Reducir tamaño del "No" y aumentar el "Sí"
+      let tamNo = Math.max(50, 100 - contadorNo * 15);
+      let tamSi = 100 + contadorNo * 15;
+
+      btnNo.style.padding = (tamNo / 4) + "px " + (tamNo / 2) + "px";
+      btnSi.style.padding = (tamSi / 4) + "px " + (tamSi / 2) + "px";
+
+      if (contadorNo >= 3) {
+        moverBoton();
+      }
+    }
+
+    function moverBoton() {
+      const btnNo = document.getElementById("no");
+      const x = Math.random() * (window.innerWidth - btnNo.offsetWidth);
+      const y = Math.random() * (window.innerHeight - btnNo.offsetHeight);
+      btnNo.style.position = "absolute";
+      btnNo.style.left = x + "px";
+      btnNo.style.top = y + "px";
+    }
+  </script>
+
+</body>
+</html>

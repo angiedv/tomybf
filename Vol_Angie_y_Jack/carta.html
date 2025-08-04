@@ -1,0 +1,92 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Carta para Ti 💌</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e6ccff; /* Lila claro */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    header {
+      width: 100%;
+      padding: 20px;
+      background-color: rgba(200, 148, 255, 0.6);
+      font-size: 1.8rem;
+      font-weight: bold;
+      border-radius: 0 0 20px 20px;
+    }
+
+    .volver {
+      margin-top: 15px;
+      text-decoration: none;
+      background: rgba(170, 110, 255, 0.9);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .volver:hover {
+      background: rgba(150, 90, 240, 0.9);
+    }
+
+    .carta {
+      max-width: 700px;
+      background: white;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #444;
+      text-align: left;
+      min-height: 200px;
+    }
+
+    /* Texto animado */
+    .texto-escrito {
+      white-space: pre-wrap; /* Mantener saltos de línea */
+    }
+  </style>
+</head>
+<body>
+
+  <header>💌 Una Carta para Ti</header>
+
+  <a href="menu.html" class="volver">⬅ Volver al inicio</a>
+
+  <div class="carta">
+    <p id="texto" class="texto-escrito"></p>
+  </div>
+
+  <script>
+    const textoCompleto = `Hola pollito: Aun siento muy cursi ese apodo jsjs, solo pasaba a recordarte que te amo muchismo, de verdad demasiado, y bueno espero seguir asi siempre hasta que seamos muy viejitos y tengamos nietos. Tambien espero que te este gustando este regalo, en la siguiente seccion hay algo importante, porque creo q tu ya lo has echo (aun asi espero que lo vuelvas a hacer jsj), te amo muchisimo mi niño.💕`;
+
+    let i = 0;
+    const velocidad = 40; // Velocidad en ms por letra
+    const textoElemento = document.getElementById("texto");
+
+    function escribirTexto() {
+      if (i < textoCompleto.length) {
+        textoElemento.textContent += textoCompleto.charAt(i);
+        i++;
+        setTimeout(escribirTexto, velocidad);
+      }
+    }
+
+    escribirTexto();
+  </script>
+
+</body>
+</html>
